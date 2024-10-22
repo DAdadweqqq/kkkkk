@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuvSonya</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8d3e0; 
+            font-family: Arial, sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.3s;
+        }
+        .yes {
+            background-color: #4caf50; 
+            color: white;
+        }
+        .no {
+            background-color: #f44336;
+            color: white;
+        }
+        .image-container {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%; 
+            transform: translate(-50%, -50%);
+            max-width: calc(100% - 40px); 
+            max-height: calc(100% - 200px); 
+            width: 300px;
+            height: 300px; 
+            padding: 20px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+            background-color: white; 
+            border-radius: 10px; 
+            overflow: hidden;
+            z-index: 10; 
+        }
+        .image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: fadeIn 1s forwards;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h1>Will you be mine?</h1>
+        <div class="button-container">
+            <button class="button yes" onclick="showImage()">Yes</button>
+            <button class="button no" onclick="moveButton()">No</button>
+        </div>
+        <div class="image-container" id="imageContainer">
+            <img src="846837057fd7357f7f3b7351ea08e233.jpg" alt="Love Image" class="image" id="loveImage">
+        </div>
+    </div>
+
+    <script>
+        let noButtonOffset = 0;
+
+        function moveButton() {
+            noButtonOffset += 50; 
+            const noButton = document.querySelector('.no');
+            noButton.style.transform = `translateX(${noButtonOffset}px)`;
+        }
+
+        function showImage() {
+            const imageContainer = document.getElementById('imageContainer');
+            imageContainer.style.display = 'block'; 
+        }
+    </script>
+
+</body>
+</html>
